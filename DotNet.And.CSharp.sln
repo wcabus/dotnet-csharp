@@ -3,9 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Init", "01 - Init", "{380D46DA-72D7-4EED-9588-276F56CCA706}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Type system", "02 - Type system", "{CF3F6D6F-CEF0-4386-B197-7336EE14E9F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeSystem", "TypeSystem\TypeSystem.csproj", "{1FFEEEFE-A3DF-4FA1-9509-1F603864A5BF}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FFEEEFE-A3DF-4FA1-9509-1F603864A5BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FFEEEFE-A3DF-4FA1-9509-1F603864A5BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FFEEEFE-A3DF-4FA1-9509-1F603864A5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FFEEEFE-A3DF-4FA1-9509-1F603864A5BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1FFEEEFE-A3DF-4FA1-9509-1F603864A5BF} = {CF3F6D6F-CEF0-4386-B197-7336EE14E9F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5FB14213-3F1C-4B74-B7E9-C0CDAD53D125}
