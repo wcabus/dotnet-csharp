@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Threading", "05 - Thre
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 - Generics", "06 - Generics", "{F74ACB5A-30B9-4A98-9EEF-17BC904E31A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threading", "Threading\Threading.csproj", "{57D97824-97E7-49DF-A178-338E7A093B62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{AF2FC8BB-7A16-486E-A9A7-42CE9B5A4B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF2FC8BB-7A16-486E-A9A7-42CE9B5A4B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF2FC8BB-7A16-486E-A9A7-42CE9B5A4B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D97824-97E7-49DF-A178-338E7A093B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D97824-97E7-49DF-A178-338E7A093B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D97824-97E7-49DF-A178-338E7A093B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D97824-97E7-49DF-A178-338E7A093B62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{92569992-8AD0-4F54-901D-D879692F6CAC} = {E31C0E8B-D282-4938-95B6-9E52C6A26565}
 		{543DD117-344E-4A1E-8003-79097B8C1A54} = {9D0A0D4A-2828-4AEF-AE54-A9401D1721E7}
 		{AF2FC8BB-7A16-486E-A9A7-42CE9B5A4B56} = {EFF481D0-492C-46D4-8519-3D9F0B268F8E}
+		{57D97824-97E7-49DF-A178-338E7A093B62} = {F3A18088-5B44-4EC8-80AD-D57858C81F2D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5FB14213-3F1C-4B74-B7E9-C0CDAD53D125}
