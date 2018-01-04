@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 
 namespace ThreadingSample
@@ -19,6 +20,7 @@ namespace ThreadingSample
                 // ReadNumbersAndAddThem();
                 // ForegroundBlockingThread();
                 // BackgroundBlockingThread();
+                ReadNumbersAndComputeThem();
             }
             finally
             {
@@ -61,25 +63,46 @@ namespace ThreadingSample
 
         static void NumberAdderThread(object state)
         {
-            var queue = state as Queue<int>;
-            var total = 0;
-
-            if (queue == null)
+            if (!(state is Queue<int> queue))
             {
                 return; 
             }
 
+            var queueCount = 0;
             while (!_stopRunning)
             {
-                if (queue.Count > 0)
+                var currentQueueCount = queue.Count;
+                if (currentQueueCount > queueCount)
                 {
-                    while (queue.Count > 0)
-                    {
-                        var number = queue.Dequeue();
-                        total += number;
-                    }
+                    queueCount = currentQueueCount;
 
+                    var total = queue.Sum();
                     Console.WriteLine($"Total of all entered numbers: {total}");
+                }
+
+                Thread.Sleep(1000);
+            }
+        }
+
+        static void NumberSubtractorThread(object state)
+        {
+            if (!(state is Queue<int> queue))
+            {
+                return;
+            }
+
+            var queueCount = 0;
+            while (!_stopRunning)
+            {
+                var currentQueueCount = queue.Count;
+                if (currentQueueCount > queueCount)
+                {
+                    queueCount = currentQueueCount;
+
+                    var total = queue.Peek() * 2;
+                    total -= queue.Sum();
+
+                    Console.WriteLine($"First - sum of all other entered numbers: {total}");
                 }
 
                 Thread.Sleep(1000);
@@ -116,6 +139,28 @@ namespace ThreadingSample
                     IsBackground = true // A background thread
                 }
                 .Start();
+        }
+
+        static void ReadNumbersAndComputeThem()
+        {
+            Console.WriteLine("Keep entering numbers and confirm them with <ENTER> to perform computations with them.");
+            Console.WriteLine("To stop, press <ENTER> on an empty line.");
+
+            var queue = new Queue<int>();
+            string input;
+
+            ThreadPool.QueueUserWorkItem(NumberAdderThread, queue);
+            ThreadPool.QueueUserWorkItem(NumberSubtractorThread, queue);
+
+            while (!string.IsNullOrWhiteSpace(input = Console.ReadLine()))
+            {
+                if (int.TryParse(input, out var number))
+                {
+                    queue.Enqueue(number);
+                }
+            }
+
+            _stopRunning = true;
         }
     }
 }
