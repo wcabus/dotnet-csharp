@@ -20,7 +20,7 @@ namespace ThreadingSample
                 // ReadNumbersAndAddThem();
                 // ForegroundBlockingThread();
                 // BackgroundBlockingThread();
-                ReadNumbersAndComputeThem();
+                // ReadNumbersAndComputeThem();
             }
             finally
             {
