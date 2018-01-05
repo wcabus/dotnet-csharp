@@ -7,12 +7,11 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            IEnumerable<Cat> cats = new[] {new Cat {Name = "Gizmo"}};
+            var cats = new List<Cat> {new Cat {Name = "Gizmo"}};
             IEnumerable<Animal> animals = cats; // Works, because IEnumerable is covariant.
 
             var animalValidator = new AnimalValidator();
             var catValidator = new CatValidator();
-            var list2 = new List<Animal>();
 
             ValidateCats(cats, animalValidator); // Can give an IValidator<Animal> to a method that expects IValidator<Cat> because T is contravariant
             ValidateAnimals(cats, animalValidator); // Of course, you can also validate cats using the ValidateAnimals method because the source is both Cat and Animal and IEnumerable is covariant
